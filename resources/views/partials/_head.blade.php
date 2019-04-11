@@ -20,10 +20,9 @@
     html {
     }
 
-    main {
-        
-        background: url('{{ asset("img/wallpaper.jpg") }}') no-repeat top center/cover;
-        position: absolute;
+    body {
+        background: url('{{ asset("img/wallpaper.jpg") }}') no-repeat;
+        background-attachment: fixed;
         width: 100%;
         height: 100%;
     }
@@ -32,37 +31,31 @@
         float: right;
         background: url('{{ asset("img/bg.png") }}') repeat;
         width: 80%;
-        height: 100%;
+        min-height: 100vh;
     }
 
-    .page-title {
+    .about {
+        
+    }
+    .about .intro {
         float: left;
         width: 100%;
-        height: 84px;
-        background-color: #008073;
-        color: #fff;
-        padding: 3px 20px;
-        margin-bottom: 40px;
-        font-family: "Roboto", sans-serif;
-        font-weight: 200;
     }
 
-    .page-content {
+    .about .intro .content {
+        margin-bottom: 20px;
+        font-size: 28px;
+        font-weight: bold;
         float: left;
-        width: 100%;
-        padding: 0px 20px;
+        width: 95%;
+        border-left: 5px solid #008073;
+        color: #008073;
+        padding-left: 25px;
     }
 
-    .card {
-        background: #fff;
-        height: 80px;
-        width: 90%;
-        float: left;
-        box-sizing: border-box;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-        background-clip: padding-box;
-        position: relative;
+    .about .body {
+        font-size: 17px;
+        line-height: 27px;
     }
-    
+
 </style>

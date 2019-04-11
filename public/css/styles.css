@@ -2,13 +2,12 @@
 
 .navigation {
     float: left;
-    /* background: #fff;  */
     background: rgba(255, 255, 255, 0.7);
     width: 20%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
     position: fixed;
     height: 100%;
-    /* opacity: 0.5; */
+    min-height: 100vh;
 }
 
 .navigation ul {
@@ -82,3 +81,148 @@
     text-align: center;
 }
 
+.page-title {
+    float: left;
+    width: 100%;
+    height: 84px;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 3px 20px;
+    margin-bottom: 40px;
+    font-family: "Roboto", sans-serif;
+    font-weight: 200;
+}
+
+.page-content {
+    float: left;
+    width: 100%;
+    padding: 0px 20px;
+}
+
+.container {
+    width: 100%;
+    float: left;
+}
+
+
+.home-page {
+    float: right;
+    width: 80%;
+}
+
+.home-page .intro {
+    font-size: 43px;
+    line-height: 150%;
+    width: 42%;
+    float: left;
+    color: #fff;
+    margin-left: 40px;
+    margin-top: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.home-page .intro .word-box {
+    padding: 8px 10px;
+    background-color: #00bcd4;
+}
+
+.home-page .intro .word-line {
+    border-bottom: 4px solid #00bcd4;
+    padding-bottom: 5px;
+}
+
+.card {
+    background: #fff;
+    width: 100%;
+    float: left;
+    box-sizing: border-box;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    background-clip: padding-box;
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.card .card-content {
+    padding: 15px 20px 0px;
+    float: left;
+    width: 100%;
+}
+
+.card-header {
+    border-bottom: 1px solid #ddd;
+    float: left;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.card-content .card-header div.image {
+    width: 7%;
+    float: left;
+}
+
+.card-content .card-header div.image img {
+    width: 50px;
+    height: auto;
+    float: left;
+    border-radius: 50%;
+}
+
+.card-content .card-header div.title {
+    width: 93%;
+    float: right;
+    color: #795548;
+    line-height: 2.508rem;
+    font-size: 26px;
+    padding: 5px 0;
+}
+
+.card-content .card-body {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+}
+
+.card-content .card-body ul {
+    float: left;
+    width: 100%;
+    padding-left: 0px;
+    list-style: none;
+}
+
+.card-content .card-body ul li div.skill-container {
+    float: left;
+    width: 100%;
+    background-color: #eee;
+    margin-bottom: 10px;
+}
+
+.card-content .card-body ul li .skill-container .skill-bar-container {
+    width: 90%;
+    background-color: #eee;
+    float: left;
+}
+
+
+.card-content .card-body ul li .skill-container .skill-bar-container .skill-bar {
+    background-color: #01a1a7;
+    float: left;
+}
+
+.card-content .card-body ul li .skill-container .skill-bar-container .skill-bar .skill {
+    background-color: #04C2C9;
+    float: left;
+    color: #fff;
+    text-align: center;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+.card-content .card-body ul li .skill-container .skill-rate {
+    width: 10%;
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+    padding: 5px 10px;
+}
