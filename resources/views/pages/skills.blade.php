@@ -40,6 +40,7 @@
                                 @endforeach
                             </ul>
                         </div>
+                        
                     </div>
                 </div>
                 @endforeach 

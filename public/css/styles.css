@@ -165,7 +165,7 @@
     width: 50px;
     height: auto;
     float: left;
-    border-radius: 50%;
+    /* border-radius: 50%; */
 }
 
 .card-content .card-header div.title {
@@ -175,12 +175,87 @@
     line-height: 2.508rem;
     font-size: 26px;
     padding: 5px 0;
+    /* padding-left: 10px; */
+}
+
+.card-content .card-header div.company {
+    width: 50%;
+    float: left;
+    color: #00bcd4;
+    line-height: 2.508rem;
+    font-size: 27px;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+.card-content .card-header div.school {
+    width: 100%;
+    float: left;
+    color: #00bcd4;
+    line-height: 2.508rem;
+    font-size: 27px;
+    text-transform: uppercase;
+    padding: 5px 0;
+}
+
+.card-content .card-header div.school-address {
+    width: 100%;
+    float: left;
+    color: #795548;
+    line-height: 2.508rem;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.card-content .card-header div.course {
+    width: 100%;
+    float: left;
+    color: #666;
+    font-size: 14px;
+}
+
+.card-content .card-header div.company a {
+    color: #00bcd4 !important;
+}
+
+.card-content .card-body .education-date {
+    float: left;
+    width: 100%;
+    color: #666;
+    font-size: 12px;
+}
+
+.card-content .card-header div.job-title {
+    width: 43%;
+    float: left;
+    color: #795548;
+    line-height: 2.508rem;
+    font-size: 23px;
+    text-align: right;
+    padding: 5px 0;
 }
 
 .card-content .card-body {
     float: left;
     width: 100%;
     margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-content .card-footer {
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-content .card-footer .employment-date {
+    float: left;
+    width: 100%;
+    color: #666;
+    font-size: 12px;
 }
 
 .card-content .card-body ul {

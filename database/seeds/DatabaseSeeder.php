@@ -11,6 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(SkillTypeTableSeeder::class);
+        $seeders = ['SkillTypeTableSeeder', 'ExperienceTableSeeder', 'EducationTableSeeder'];
+
+        $this->call($seeders);
     }
 }

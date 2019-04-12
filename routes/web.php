@@ -15,9 +15,11 @@ Route::get('/', 'PageController@index')->name('home');
 
 Route::get('/about', 'PageController@getAbout')->name('about');
 
-Route::get('/information', 'PageController@getInformation')->name('information');
-
 Route::get('/skills', 'PageController@getSkills')->name('skills');
+
+Route::get('/experiences', 'PageController@getExperiences')->name('experience');
+
+Route::get('/education', 'PageController@getEducation')->name('education');
 
 //Auth::routes();
 

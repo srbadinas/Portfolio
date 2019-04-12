@@ -18,22 +18,22 @@
         </a>
       </li>
       <li class="menu">
-        <a href="{{ route('information') }}">
-          <i class="fas fa-info red-text"></i><span>Information</span>
-        </a>
-      </li>
+          <a href="#">
+            <i class="fas fa-project-diagram red-text"></i><span>Projects</span>
+          </a>
+        </li>
       <li class="menu">
         <a href="{{ route('skills') }}">
           <i class="fas fa-chart-bar purple-text"></i><span>Skills</span>
         </a>
       </li>
       <li class="menu">
-        <a href="#">
+        <a href="{{ route('experience') }}">
           <i class="fas fa-chart-line cyan-text"></i><span>Experience</span>
         </a>
       </li>
       <li class="menu">
-        <a href="#">
+        <a href="{{ route('education') }}">
           <i class="fas fa-graduation-cap orange-text"></i><span>Education</span>
         </a>
       </li>
