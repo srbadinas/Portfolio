@@ -19,6 +19,10 @@ class CreateSkillTypesTable extends Migration
             $table->string('image_url');
             $table->timestamps();
         });
+
+        Schema::table('skills', function (Blueprint $table) {
+            $table->foreign('skill_type_id')->references('id')->on('skill_types')->onDelete('cascade');
+        }); 
     }
 
     /**
@@ -28,6 +32,10 @@ class CreateSkillTypesTable extends Migration
      */
     public function down()
     {
+        Schema::table('skills', function (Blueprint $table) {
+            $table->dropForeign(['skill_type_id']);
+        });
         Schema::dropIfExists('skill_types');
+        
     }
 }

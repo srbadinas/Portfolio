@@ -4,8 +4,6 @@
 
 @section('content')
     <div class="home-page">
-        <div class="intro">
-            <span class="word-box">Big things</span> starts with <span class="word-line">small beginnings</span>.  
-        </div>
+        {!! $intro !!}
     </div>
 @endsection

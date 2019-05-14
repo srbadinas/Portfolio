@@ -1,77 +1,79 @@
-@extends('layouts.app')
+@extends('main')
+
+@section('title', "Register User")
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+<div class="register-page col-md-12">
+    <div class="col-md-4 col-md-offset-4 register">
+        <div class="col-md-12 header">
+            <h3>Register</h3>
+        </div>
+        <div class="col-md-12 wrapper">
+            @include('partials._messages')
+            {!! Form::open(['route' => 'register', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true]) !!}
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('username', 'Username:', ['class' => 'control-label']) }}
+                    {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Enter Username', 'required' => '']) }}
+                    </div>
                 </div>
-            </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('password', 'Password:', ['class' => 'control-label']) }}
+                    {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Enter Password', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('password_confirmation', 'Confirm Password:', ['class' => 'control-label']) }}
+                    {{ Form::password('password_confirmation', ['class' => 'form-control', 'placeholder' => 'Enter Confirm Password', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('email', 'Email Address:', ['class' => 'control-label']) }}
+                    {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Enter Email Address', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('firstname', 'Firstname:', ['class' => 'control-label']) }}
+                    {{ Form::text('firstname', null, ['class' => 'form-control', 'placeholder' => 'Enter Firstname', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('lastname', 'Lastname:', ['class' => 'control-label']) }}
+                    {{ Form::text('lastname', null, ['class' => 'form-control', 'placeholder' => 'Enter Lastname', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('career', 'Career:', ['class' => 'control-label']) }}
+                    {{ Form::text('career', null, ['class' => 'form-control', 'placeholder' => 'Enter Career', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                    {{ Form::label('contact_number', 'Contact Number:', ['class' => 'control-label']) }}
+                    {{ Form::text('contact_number', null, ['class' => 'form-control', 'placeholder' => 'Enter Contact Number', 'required' => '']) }}
+                    </div>
+                </div>
+                <div class="form-group">
+                        <div class="col-md-12">
+                        {{ Form::label('picture', 'Picture:', ['class' => 'control-label']) }}
+                        {{ Form::file('picture') }}
+                        </div>
+                    </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        {{ Form::submit('Register', ['class' => 'btn btn-success btn-block']) }}
+                    </div>
+                </div>
+            {!! Form::close() !!}
         </div>
     </div>
 </div>
+
 @endsection

@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use Image;
+
 class RegisterController extends Controller
 {
     /*
@@ -28,7 +30,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -49,9 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'username' => ['required','unique:users,username'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'email' => ['required', 'string', 'email', 'unique:users'],
+            'firstname' => ['required', 'string'],
+            'lastname' => ['required', 'string'],
+            'career' => ['required', 'string'],
+            'contact_number' => ['required', 'numeric', 'digits:12']
         ]);
     }
 
@@ -63,10 +69,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        $request = app('request');
+
+        $user = new User();
+
+        if ($request->hasFile('picture')) {
+            $image = $request->file('picture');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('img/' . $filename);
+            Image::make($image)->resize(200, 200)->save($location);
+            $user->picture_url = $filename;
+        }
+
+        $user->username = $data['username'];
+        $user->password = $data['password'];
+        $user->email = $data['email'];
+        $user->firstname = $data['firstname'];
+        $user->lastname = $data['lastname'];
+        $user->career = $data['career'];
+        $user->contact_number = $data['contact_number'];
+
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'username' => $user->username,
+            'password' => Hash::make($user->password),
+            'email' => $user->email,
+            'firstname' => $user->firstname,
+            'lastname' => $user->lastname,
+            'career' => $user->career,
+            'contact_number' => $user->contact_number,
+            'picture_url' => $user->picture_url,
         ]);
     }
 }

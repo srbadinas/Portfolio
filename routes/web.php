@@ -21,6 +21,16 @@ Route::get('/experiences', 'PageController@getExperiences')->name('experience');
 
 Route::get('/education', 'PageController@getEducation')->name('education');
 
-//Auth::routes();
+Route::get('/projects', 'PageController@getProjects')->name('project');
+
+Auth::routes();
+
+Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('user/projects', 'ProjectController@index')->name('projects.index');
+    Route::get('user/projects/create', 'ProjectController@create')->name('projects.create');
+    Route::post('user/projects/create', 'ProjectController@store')->name('projects.store');
+});
 
 //Route::get('/home', 'HomeController@index')->name('home');

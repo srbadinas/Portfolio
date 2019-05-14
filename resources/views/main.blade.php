@@ -3,13 +3,20 @@
     <head>
         @include('partials._head')
     </head>
-    <body>
+    <body style="background: url('{{ asset("img/wallpaper.jpg") }}') no-repeat">
         <main>
-            @include('partials._nav')
-        
+            @if (Auth::user())
+                @include('partials._dashboard')
+            @endif
+            
+            @if (Route::currentRouteName() != 'login' && Route::currentRouteName() != 'register') 
+                @include('partials._nav')
+            @endif
+            
             @yield('content')
-
-            @include('partials._javascript')
+            
         </main>
+
+        @include('partials._javascript')
     </body>
 </html>
