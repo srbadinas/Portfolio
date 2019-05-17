@@ -107,7 +107,7 @@
         <i class="glyphicon glyphicon-align-justify"></i>
       </a>
     </div>
-    <div class="header-content">
+    <div class="header-content" onclick="location.href='{{ route('home') }}'">
         @if ($user_data)
           <div class="person-content">
               <div class="fullname">
