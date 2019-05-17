@@ -10,12 +10,12 @@
 <script>
     $(document).ready(function() {
         $('#navigation-small-trigger-button').on('click', function() {
-            $('.navigation-small').show();
+            $('.navigation-small').css('left', '0px');
             $('.overlay').addClass('active');
         });
 
         $('.overlay').on('click', function() {
-            $('.navigation-small').hide();
+            $('.navigation-small').css('left', '-200px');
             $('.overlay').removeClass('active');
         });
     });
