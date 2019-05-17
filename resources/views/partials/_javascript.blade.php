@@ -8,5 +8,15 @@
 @yield('scripts')
 
 <script>
+    $(document).ready(function() {
+        $('#navigation-small-trigger-button').on('click', function() {
+            $('.overlay').addClass('active');
+        });
+
+        $('.overlay').on('click', function() {
+            $('.overlay').removeClass('active');
+            $('.navigation-small').removeClass('in');
+        });
+    });
 </script>
 

@@ -14,9 +14,8 @@
             @endif
             
             @yield('content')
-            
+            <div class="overlay"></div>
         </main>
-
         @include('partials._javascript')
     </body>
 </html>

@@ -41,4 +41,10 @@
         }
     }
 
+    @media (max-width: 700px) {
+        .page-wrapper {
+            width: 100%;
+        }
+    }
+
 </style>
