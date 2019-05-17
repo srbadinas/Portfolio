@@ -200,6 +200,7 @@
     position: absolute;
     text-align: center;
     z-index: 1;
+    cursor: pointer;
 }
 
 .navigation-small-trigger .header .header-content .person-content .fullname {
@@ -222,7 +223,7 @@
     left: 0px;
     z-index: 3;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-    transition: all 0.5s ease-in-out;
+    transition: 0.5s;
 }
 
 .navigation-small ul {
@@ -282,7 +283,7 @@
     }
 }
 
-@media (min-width: 300px) and (max-width: 1057px) {
+@media (min-width: 701px) and (max-width: 1057px) {
     .navigation {
         display: none;
     }
