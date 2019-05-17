@@ -103,7 +103,7 @@
 <nav class="navigation-small-trigger">
   <div class="header">
     <div class="toggle-button">
-      <a href="#navigation-collapse" data-toggle="collapse" aria-expanded="false" id="navigation-small-trigger-button">
+      <a href="#" id="navigation-small-trigger-button">
         <i class="glyphicon glyphicon-align-justify"></i>
       </a>
     </div>
@@ -123,7 +123,7 @@
   
 </nav>
 
-<nav class="navigation-small collapse" id="navigation-collapse">
+<nav class="navigation-small">
     <ul>
       <li class="menu">
         <a href="{{ route('about') }}">
