@@ -86,6 +86,12 @@ textarea {
     }
 }
 
+@media (max-width: 700px) {
+    .dashboard {
+        width: 100%;
+    }
+}
+
 main {
     float: left;
     width: 100%;
@@ -156,6 +162,12 @@ main {
 @media (min-width: 1058px) {
     .home-page {
         width: 80%;
+    }
+}
+
+@media (max-width: 700px) {
+    .home-page {
+        width: 100%;
     }
 }
 
