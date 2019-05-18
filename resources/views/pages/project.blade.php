@@ -18,7 +18,7 @@
             <div class="container">
                 @foreach($projects as $item)
                     <div class="project-card">
-                        @if ($item->image_url) 
+                        @if ($item->thumbnail) 
                             <img class="project-img" src="{{ asset('img/project/thumbnail'.$item->thumbnail) }}"/>
                         @else
                             <img class="project-img" src="{{ asset('img/no_image_available.jpg') }}" />
@@ -43,7 +43,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             @foreach ($item->images as $image)
                                                 <div class="item {{ $loop->first ? 'active' : '' }}">
-                                                    <img src="{{ asset('img/project/images/'.$image->image_url) }}">
+                                                    <img src="{{ asset('img/project/images/'.$image->image) }}">
                                                 </div>
                                             @endforeach
                                         </div>
