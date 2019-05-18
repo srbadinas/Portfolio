@@ -11,6 +11,10 @@ textarea {
     resize: vertical;
 }
 
+dt, dd {
+    margin-bottom: 5px;
+}
+
 .messages-modal {
     display: block !important;
 }
@@ -91,12 +95,15 @@ main {
     font-weight: 200;
 }
 
-.page-title>div.col-md-10 {
-    padding-left: 0px !important;
+.page-title .title {
+    float: left;
+    width: 80%;
 }
 
-.page-title>div.col-md-2>button {
-    margin: 22px 0px;
+.page-title .manage-button {
+    float: left;
+    width: 20%;
+    padding: 23px 0px;
 }
 
 .page-content {
@@ -429,7 +436,9 @@ main {
     color: #444;
 }
 
-
+.margin-top-10 {
+    margin-top: 10px;
+}
 
 /* User Page */
 

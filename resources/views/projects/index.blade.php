@@ -30,7 +30,7 @@
                                 <td>{{ $item->created_at }}</td>
                                 <td>{{ $item->updated_at }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning btn-sm"><i class="glyphicon glyphicon-pencil"></i></button>
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="location.href='{{ route('projects.show', $item->id) }}'"><i class="glyphicon glyphicon-pencil"></i></button>
                                     <button type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-trash"></i></button>
                                 </td>
                             </tr>

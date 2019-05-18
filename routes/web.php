@@ -31,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('user/projects', 'ProjectController@index')->name('projects.index');
     Route::get('user/projects/create', 'ProjectController@create')->name('projects.create');
     Route::post('user/projects/create', 'ProjectController@store')->name('projects.store');
+    Route::get('user/projects/{id}', 'ProjectController@show')->name('projects.show');
 });
 
 //Route::get('/home', 'HomeController@index')->name('home');

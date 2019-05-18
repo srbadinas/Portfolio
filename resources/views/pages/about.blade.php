@@ -5,12 +5,14 @@
 @section('content')
     <div class="page-wrapper">
         <div class="page-title">
-            <div class="col-md-10">
+            <div class="title">
                 <h1>ABOUT</h1>
             </div>
-            <div class="col-md-2">
-                <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-cog"></i></button>
-            </div>
+            @if (Auth::user())
+                <div class="manage-button">
+                    <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-cog"></i></button>
+                </div>
+            @endif
         </div>
         <div class="page-content">
             <div class="about">

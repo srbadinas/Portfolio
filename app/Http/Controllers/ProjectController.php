@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 use App\Project;
 use App\ProjectImage;
-use App\Session;
 
 use Image;
 
@@ -55,12 +55,15 @@ class ProjectController extends Controller
         if ($request->hasFile('thumbnail')) {
             $image = $request->file('thumbnail');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('img/project/thumbnail' . $filename);
+            $location = public_path('img/project/thumbnail/' . $filename);
             Image::make($image)->resize(400, 300)->save($location);
             $project->thumbnail = $filename;
         }
 
+        $max_count = Project::all()->count();
+
         $project->name = $request->name;
+        $project->order = $max_count + 1;
         $project->highlight = $request->highlight;
         $project->link = $request->link;
         $project->description = $request->description;
@@ -74,7 +77,7 @@ class ProjectController extends Controller
                 $project_image = new ProjectImage();
                 $image = $item;
                 $filename = time() . '.' . $image->getClientOriginalExtension();
-                $location = public_path('img/project/images' . $filename);
+                $location = public_path('img/project/images/' . $filename);
                 Image::make($image)->resize(400, 300)->save($location);
                 $project_image->project_id = $project->id;
                 $project_image->image_url = $filename;
@@ -85,7 +88,7 @@ class ProjectController extends Controller
 
         Session::flash('success', "Project has been created.");
 
-        return route('projects.details', $project->id);
+        return route('projects.show', $project->id);
     }
 
     /**
@@ -96,7 +99,9 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        //
+        $project = Project::find($id);
+        $project->thumbnail = "img/project/thumbnail/" . $project->thumbnail;
+        return view('projects.show', ['project' => $project]);
     }
 
     /**

@@ -5,18 +5,24 @@
 @section('content')
     <div class="page-wrapper">
         <div class="page-title">
-            <div class="col-md-10">
+            <div class="title">
                 <h1>PROJECTS</h1>
             </div>
-            <div class="col-md-2">
-                <button type="button" class="btn btn-default pull-right" onclick="location.href='{{ route('projects.index') }}'"><i class="glyphicon glyphicon-cog"></i></button>
-            </div>
+            @if (Auth::user())
+                <div class="manage-button">
+                    <button class="btn btn-default pull-right" onclick="location.href='{{ route('projects.index') }}'"><i class="glyphicon glyphicon-cog"></i></button>
+                </div>
+            @endif
         </div>
         <div class="page-content">
             <div class="container">
                 @foreach($projects as $item)
                     <div class="project-card">
-                        <img class="project-img" src="{{str_replace('public','', $item->images->first()->image_url)}}"/>
+                        @if ($item->image_url) 
+                            <img class="project-img" src="{{ str_replace('public','', $item->images->first()->image_url) }}"/>
+                        @else
+                            <img class="project-img" src="{{ asset('img/no_image_available.jpg') }}" />
+                        @endif
                         <div class="project-title">
                             <div class="title">
                                 {{ $item->name }}
