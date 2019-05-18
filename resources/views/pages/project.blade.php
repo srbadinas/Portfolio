@@ -19,7 +19,7 @@
                 @foreach($projects as $item)
                     <div class="project-card">
                         @if ($item->image_url) 
-                            <img class="project-img" src="{{ str_replace('public','', $item->images->first()->image_url) }}"/>
+                            <img class="project-img" src="{{ asset('img/project/thumbnail'.$item->thumbnail) }}"/>
                         @else
                             <img class="project-img" src="{{ asset('img/no_image_available.jpg') }}" />
                         @endif
@@ -43,7 +43,7 @@
                                         <div class="carousel-inner" role="listbox">
                                             @foreach ($item->images as $image)
                                                 <div class="item {{ $loop->first ? 'active' : '' }}">
-                                                    <img src="{{ asset(str_replace('public','', $image->image_url)) }}">
+                                                    <img src="{{ asset('img/project/images/'.$image->image_url) }}">
                                                 </div>
                                             @endforeach
                                         </div>
