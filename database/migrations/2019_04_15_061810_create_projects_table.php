@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\Project;
+
 class CreateProjectsTable extends Migration
 {
     /**
@@ -24,6 +26,21 @@ class CreateProjectsTable extends Migration
             $table->string('company', 150)->nullable();
             $table->timestamps();
         });
+
+        $proj_1 = new Project();
+
+        
+
+        $proj_1->name = "PeopleLink Backend System";
+        $proj_1->order = 1;
+        $proj_1->highlight = "C#, MVC, .Net Framework and N-Tier Architecture";
+        $proj_1->thumbnail = "dashboard.png";
+        $proj_1->description = "A Backend System that is capable of managing the inventory and transactions of the company. Capable of managing the content of the company's Mobile App, MagConnect.";
+        $proj_1->company = "Magsaysay PeopleLink";
+        $proj_1->save();
+
+        
+
     }
 
     /**

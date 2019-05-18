@@ -76,7 +76,7 @@ class RegisterController extends Controller
         if ($request->hasFile('picture')) {
             $image = $request->file('picture');
             $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('img/' . $filename);
+            $location = public_path('img/user/' . $filename);
             Image::make($image)->resize(200, 200)->save($location);
             $user->picture_url = $filename;
         }

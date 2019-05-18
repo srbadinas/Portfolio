@@ -2,7 +2,7 @@
     <ul>
       <li class="logo" onclick="location.href='{{ route('home') }}'">
         @if ($user_data)
-          <img src="{{ asset('img/' . $user_data->picture_url) }}" />
+          <img src="{{ asset('img/user/' . $user_data->picture_url) }}" />
           <div class="person-content">
               <div class="fullname">
                   {{ $user_data->firstname }} {{ $user_data->lastname }}
@@ -57,7 +57,7 @@
   <ul>
       <li class="logo" onclick="location.href='{{ route('home') }}'">
         @if ($user_data)
-          <img src="{{ asset('img/' . $user_data->picture_url) }}" />
+          <img src="{{ asset('img/user/' . $user_data->picture_url) }}" />
         @else
           <img src="{{ asset('img/default-user-image.png') }}" />
         @endif

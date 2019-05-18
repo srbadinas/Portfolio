@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
+use App\ProjectImage;
+
 class CreateProjectImagesTable extends Migration
 {
     /**
@@ -21,6 +23,49 @@ class CreateProjectImagesTable extends Migration
             $table->timestamps();
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
         });
+
+        $proj_img_1 = new ProjectImage();
+        $proj_img_2 = new ProjectImage();
+        $proj_img_3 = new ProjectImage();
+        $proj_img_4 = new ProjectImage();
+        $proj_img_5 = new ProjectImage();
+        $proj_img_6 = new ProjectImage();
+        $proj_img_7 = new ProjectImage();
+
+        $proj_img_1->image = "dashboard.png";
+        $proj_img_1->order = 1;
+        $proj_img_1->project_id = 1;
+        $proj_img_1->save();
+
+        $proj_img_2->image = "user-index.png";
+        $proj_img_2->order = 2;
+        $proj_img_2->project_id = 1;
+        $proj_img_2->save();
+
+        $proj_img_3->image = "product-index.png";
+        $proj_img_3->order = 3;
+        $proj_img_3->project_id = 1;
+        $proj_img_3->save();
+
+        $proj_img_4->image = "package-index.png";
+        $proj_img_4->order = 4;
+        $proj_img_4->project_id = 1;
+        $proj_img_4->save();
+
+        $proj_img_5->image = "sales-order-index.png";
+        $proj_img_5->order = 5;
+        $proj_img_5->project_id = 1;
+        $proj_img_5->save();
+
+        $proj_img_6->image = "subscription-index.png";
+        $proj_img_6->order = 6;
+        $proj_img_6->project_id = 1;
+        $proj_img_6->save();
+
+        $proj_img_7->image = "mobile-news-index.png";
+        $proj_img_7->order = 7;
+        $proj_img_7->project_id = 1;
+        $proj_img_7->save();
     }
 
     /**
