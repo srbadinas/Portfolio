@@ -63,37 +63,5 @@ class PageController extends Controller
         return view('pages.project', ['projects' => $projects, 'user_data' => $this->user_data]);
     }
 
-    public function register(Request $request) {
-        $this->validate($request, [
-            'username' => 'required|unique:users,username',
-            'password' => 'required|confirmed',
-            'email' => 'required|email|unique:users',
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'career' => 'required',
-            'contact_number' => 'required|numeric|digits:12',
-        ]);
-
-        $user = new User();
-        if ($request->hasFile('picture')) {
-            $image = $request->file('picture');
-            $filename = time() . '.' . $image->getClientOriginalExtension();
-            $location = public_path('img/' . $filename);
-            Image::make($image)->resize(200, 200)->save($location);
-            $user->picture_url = $filename;
-        }
-        $user->username = $request->username;
-        $user->password = Hash::make($request->password);
-        $user->email = $request->email;
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->career = $request->career;
-        $user->contact_number = $request->contact_number;
-        $user->save();
-
-        Session::flash('success', Config::get('utils.constants.messages.user_creation_success'));
-
-        return redirect('/login');
-    }
-
+    
 }

@@ -81,6 +81,7 @@ class RegisterController extends Controller
             $user->picture_url = $filename;
         }
 
+        
         $user->username = $data['username'];
         $user->password = $data['password'];
         $user->email = $data['email'];
