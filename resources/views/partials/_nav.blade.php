@@ -40,7 +40,7 @@
           <i class="fas fa-graduation-cap orange-text"></i><span>Education</span>
         </a>
       </li>
-      <li class="menu">
+      {{-- <li class="menu">
         <a href="#">
           <i class="fas fa-envelope brown-text"></i><span>Contact</span>
         </a>
@@ -49,7 +49,7 @@
         <a href="#">
           <i class="fas fa-file-alt gray-text"></i><span>Resume</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
 </nav>
 
@@ -87,7 +87,7 @@
           <i class="fas fa-graduation-cap orange-text"></i>
         </a>
       </li>
-      <li class="menu">
+      {{-- <li class="menu">
         <a href="#">
           <i class="fas fa-envelope brown-text"></i>
         </a>
@@ -96,7 +96,7 @@
         <a href="#">
           <i class="fas fa-file-alt gray-text"></i>
         </a>
-      </li>
+      </li> --}}
   </ul>
 </nav>
 
@@ -150,7 +150,7 @@
           <i class="fas fa-graduation-cap orange-text"></i><span>Education</span>
         </a>
       </li>
-      <li class="menu">
+      {{-- <li class="menu">
         <a href="#">
           <i class="fas fa-envelope brown-text"></i><span>Contact</span>
         </a>
@@ -159,6 +159,6 @@
         <a href="#">
           <i class="fas fa-file-alt gray-text"></i><span>Resume</span>
         </a>
-      </li>
+      </li> --}}
     </ul>
 </nav>

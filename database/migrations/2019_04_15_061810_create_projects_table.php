@@ -28,6 +28,7 @@ class CreateProjectsTable extends Migration
         });
 
         $proj_1 = new Project();
+        $proj_2 = new Project();
 
         
 
@@ -38,6 +39,14 @@ class CreateProjectsTable extends Migration
         $proj_1->description = "A Backend System that is capable of managing the inventory and transactions of the company. Capable of managing the content of the company's Mobile App, MagConnect.";
         $proj_1->company = "Magsaysay PeopleLink";
         $proj_1->save();
+
+        $proj_2->name = "Mobile Management System";
+        $proj_2->order = 2;
+        $proj_2->highlight = "C#, MVC, .Net Framework and N-Tier Architecture";
+        $proj_2->thumbnail = "mw-dashboard.png";
+        $proj_2->description = "";
+        $proj_2->company = "Magsaysay";
+        $proj_2->save();
 
         
 

@@ -1,11 +1,11 @@
 @extends('main')
 
-@section('title', "Experiences")
+@section('title', "Experience")
 
 @section('content')
 <div class="page-wrapper">
     <div class="page-title">
-        <h1>Experiences</h1>
+        <h1>Experience</h1>
     </div>
     <div class="page-content">
         <div class="container">

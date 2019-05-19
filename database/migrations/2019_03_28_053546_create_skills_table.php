@@ -17,7 +17,6 @@ class CreateSkillsTable extends Migration
             $table->increments('id');
             $table->string('name', 50);
             $table->integer('skill_type_id')->unsigned();
-            $table->integer('rate')->unsigned();
             $table->timestamps();
         });
     }

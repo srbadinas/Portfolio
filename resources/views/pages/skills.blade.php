@@ -13,18 +13,21 @@
                 <div class="card">
                     <div class="card-content">
                         <div class="card-header">
-                            <div class="image">
-                                <img src="{{ str_replace('public','', $item->image_url) }}" />
-                            </div>
+                            @if ($item->image) 
+                                <div class="image">
+                                    <img src="{{ asset('img/skill_type/'. $item->image) }}" />
+                                </div>
+                            @endif
                             <div class="title">
                                 {{ $item->name }}
                             </div>
                         </div>
                         <div class="card-body">
-                            <ul>
+                            <ul class="skill">
                                 @foreach ($item->skills as $_item)
                                 <li>
-                                    <div class="skill-container">
+                                    {{ $_item->name }}
+                                    {{-- <div class="skill-container">
                                         <div class="skill-bar-container">
                                             <div class="skill-bar" style="width: {{ $_item->rate }}%">
                                                 <div class="skill">
@@ -35,7 +38,7 @@
                                         <div class="skill-rate">
                                             {{ $_item->rate }}%
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </li>
                                 @endforeach
                             </ul>

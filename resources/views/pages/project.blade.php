@@ -19,7 +19,7 @@
                 @foreach($projects as $item)
                     <div class="project-card">
                         @if ($item->thumbnail) 
-                            <img class="project-img" src="{{ asset('img/project/thumbnail'.$item->thumbnail) }}"/>
+                            <img class="project-img" src="{{ asset('img/project/thumbnail/'.$item->thumbnail) }}"/>
                         @else
                             <img class="project-img" src="{{ asset('img/no_image_available.jpg') }}" />
                         @endif

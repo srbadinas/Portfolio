@@ -202,7 +202,7 @@ main {
 
 .card-content .card-header div.title {
     width: 93%;
-    float: right;
+    float: left;
     color: #795548;
     line-height: 2.508rem;
     font-size: 26px;
@@ -259,7 +259,7 @@ main {
 
 .card-content .card-header div.job-title {
     width: 43%;
-    float: left;
+    float: right;
     color: #795548;
     line-height: 2.508rem;
     font-size: 23px;
@@ -290,14 +290,25 @@ main {
     font-size: 12px;
 }
 
-.card-content .card-body ul {
+.card-content .card-body ul.skill {
     float: left;
     width: 100%;
     padding-left: 0px;
     list-style: none;
 }
 
-.card-content .card-body ul li div.skill-container {
+.card-content .card-body ul.skill li {
+    float: left;
+    background-color: #04C2C9;
+    color: #fff;
+    text-align: center;
+    font-size: 11pt;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 0px 3px 3px;
+}
+
+/* .card-content .card-body ul li div.skill-container {
     float: left;
     width: 100%;
     background-color: #eee;
@@ -332,12 +343,12 @@ main {
     text-align: right;
     padding-right: 10px;
     padding: 5px 10px;
-}
+} */
 
 .project-card {
     float: left;
     width: 330px;
-    height: auto;
+    height: 230px;
     box-sizing: border-box;
     margin: 3px;
     position: relative;
@@ -359,12 +370,17 @@ main {
     text-align: center;
     transition: all 0.3s ease-in-out;
     opacity: 0;
-    font-size: 16pt;
 }
 
 .project-card>.project-title>.title {
+    font-size: 16pt;
     font-weight: bold;
     color: #1B242F;
+}
+
+.project-card>.project-title>.highlight {
+    font-size: 14pt;
+    font-weight: bold;
 }
 
 .project-card .button {
@@ -391,7 +407,11 @@ main {
 }
 
 .project-carousel {
-    height: 450px;
+    height: 370px;
+}
+
+.project-carousel .carousel-inner .item img {
+    height: 370px !important;
 }
 
 .project-carousel .carousel-control {

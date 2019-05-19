@@ -34,7 +34,7 @@
                         </div>
                         <div class="card-body">
                             <div class="education-date">
-                                {{ date('F Y', strtotime($item->date_from)) }} - {{ date('F Y', strtotime($item->date_to)) }}
+                                Graduated: {{ date('Y', strtotime($item->date_from)) }} - {{ date('Y', strtotime($item->date_to)) }}
                             </div>
                         </div>
                     </div>
