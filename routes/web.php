@@ -23,9 +23,15 @@ Route::get('/education', 'PageController@getEducation')->name('education');
 
 Route::get('/projects', 'PageController@getProjects')->name('project');
 
-Auth::routes();
+//Auth::routes();
 
+Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
+Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
+
+// Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
+// Route::post('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('user/projects', 'ProjectController@index')->name('projects.index');
