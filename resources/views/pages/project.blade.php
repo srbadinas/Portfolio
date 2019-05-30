@@ -6,11 +6,11 @@
     <div class="page-wrapper">
         <div class="page-title">
             <div class="title">
-                <h1>PROJECTS</h1>
+                <h1>Projects</h1>
             </div>
             @if (Auth::user())
                 <div class="manage-button">
-                    <button class="btn btn-default pull-right" onclick="location.href='{{ route('projects.index') }}'"><i class="glyphicon glyphicon-cog"></i></button>
+                    <button class="btn btn-outline-light float-right" onclick="location.href='{{ route('projects.index') }}'"><i class="fa fa-cog"></i></button>
                 </div>
             @endif
         </div>
@@ -32,29 +32,29 @@
                             </span>
                         </div>
                         <div class="button">
-                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#project-modal-{{$item->id}}">Read More</button>
+                            <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#project-modal-{{$item->id}}">Read More</button>
                         </div>
                         <!-- Modal -->
                         <div class="modal project-modal" id="project-modal-{{$item->id}}" tabindex="-1" role="dialog">
-                            <div class="modal-dialog" role="document">
+                            <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
-                                    <div id="project-carousel-{{ $item->id }}" class="carousel slide project-carousel" data-ride="carousel">
+                                    <div id="project-carousel-{{ $item->id }}" class="carousel slide project-carousel carousel-fade" data-ride="carousel">
                                         <!-- Wrapper for slides -->
                                         <div class="carousel-inner" role="listbox">
                                             @foreach ($item->images as $image)
-                                                <div class="item {{ $loop->first ? 'active' : '' }}">
+                                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
                                                     <img src="{{ asset('img/project/images/'.$image->image) }}">
                                                 </div>
                                             @endforeach
                                         </div>
                                         
                                         <!-- Controls -->
-                                        <a class="left carousel-control" href="#project-carousel-{{ $item->id }}" role="button" data-slide="prev">
-                                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                        <a class="carousel-control-prev" href="#project-carousel-{{ $item->id }}" role="button" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </a>
-                                        <a class="right carousel-control" href="#project-carousel-{{ $item->id }}" role="button" data-slide="next">
-                                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                        <a class="carousel-control-next" href="#project-carousel-{{ $item->id }}" role="button" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </div>
@@ -70,9 +70,9 @@
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default btn-sm pull-left" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-dark btn-sm float-left" data-dismiss="modal">Close</button>
                                         @if ($item->link)
-                                            <a href="{{ $item->link }}" class="pull-right">
+                                            <a href="{{ $item->link }}" class="float-right">
                                                 <button type="button" class="btn btn-warning btn-sm">
                                                     <span class="glyphicon glyphicon-new-window"></span>
                                                     Visit Site

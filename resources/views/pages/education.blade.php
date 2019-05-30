@@ -10,7 +10,7 @@
         </div>
         @if (Auth::user())
             <div class="manage-button">
-                <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-cog"></i></button>
+                <button class="btn btn-outline-light float-right"><i class="fa fa-cog"></i></button>
             </div>
         @endif
     </div>
@@ -23,6 +23,9 @@
                             <div class="school">
                                 {{ $item->school }}
                             </div>
+                            
+                        </div>
+                        <div class="card-body">
                             <div class="school-address">
                                 {{ $item->address }}
                             </div>
@@ -32,7 +35,7 @@
                                 </div>
                             @endif
                         </div>
-                        <div class="card-body">
+                        <div class="card-footer">
                             <div class="education-date">
                                 Graduated: {{ date('Y', strtotime($item->date_from)) }} - {{ date('Y', strtotime($item->date_to)) }}
                             </div>

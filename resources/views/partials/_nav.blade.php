@@ -104,7 +104,7 @@
   <div class="header">
     <div class="toggle-button">
       <a href="#" id="navigation-small-trigger-button">
-        <i class="glyphicon glyphicon-align-justify"></i>
+        <i class="fa fa-align-justify"></i>
       </a>
     </div>
     <div class="header-content" onclick="location.href='{{ route('home') }}'">

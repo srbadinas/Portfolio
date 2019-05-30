@@ -76,7 +76,7 @@
 
 .navigation ul li.menu a i{
     padding: 0 15px;
-    font-size: 2rem;
+    font-size: 1rem;
     width: 50px;
     text-align: center;
 }
@@ -145,7 +145,7 @@
 
 .navigation-medium ul li.menu a i{
     padding: 15px;
-    font-size: 2rem;
+    font-size: 1rem;
     width: 100%;
     float: left;
     text-align: center;
@@ -250,7 +250,7 @@
 }
 
 .navigation-small ul li.menu a i {
-    font-size: 2rem;
+    font-size: 1rem;
     text-align: center;
     /* padding: 10px 15px; */
     width: 27%;

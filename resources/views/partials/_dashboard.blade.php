@@ -5,11 +5,11 @@
                 Welcome, Sebastian! 
                 <span class="caret"></span>    
             </button>
-            <ul class="dropdown-menu">
-                <li><a href="#">View Profile</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="{{ route('logout') }}">Log-out</a></li>
-            </ul>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">View Profile</a></li>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('logout') }}">Log-out</a>
+            </div>
         </div>
     </div>
 </div>

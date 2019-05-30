@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('name', 150);
             $table->integer('order')->unsigned()->unique();
             $table->string('highlight', 150);
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
             $table->string('link', 150)->nullable();
             $table->string('description', 4000);
             $table->string('company', 150)->nullable();

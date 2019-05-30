@@ -29,15 +29,18 @@ Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLogin
 Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-// Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
+ Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
 // Route::post('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
 
 
 Route::group(['middleware' => 'auth'], function () {
+    // Project
     Route::get('user/projects', 'ProjectController@index')->name('projects.index');
     Route::get('user/projects/create', 'ProjectController@create')->name('projects.create');
     Route::post('user/projects/create', 'ProjectController@store')->name('projects.store');
     Route::get('user/projects/{id}', 'ProjectController@show')->name('projects.show');
+    Route::get('user/projects/edit/{id}', 'ProjectController@edit')->name('projects.edit');
+    Route::put('user/projects/edit/{id}', 'ProjectController@update')->name('projects.update');
 });
 
 //Route::get('/home', 'HomeController@index')->name('home');

@@ -19,8 +19,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Project::paginate(15);
-
+        $projects = Project::orderBy('order', 'ASC')->paginate(15);
         return view('projects.index', ['projects' => $projects]);
     }
 
@@ -88,19 +87,11 @@ class ProjectController extends Controller
 
         Session::flash('success', "Project has been created.");
 
-        return route('projects.show', $project->id);
+        return route('projects.index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
+    public function show($id) {
         $project = Project::find($id);
-        $project->thumbnail = "img/project/thumbnail/" . $project->thumbnail;
         return view('projects.show', ['project' => $project]);
     }
 
@@ -112,7 +103,8 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+        $project = Project::find($id);
+        return view('projects.edit', ['project' => $project]);
     }
 
     /**
@@ -124,7 +116,52 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max: 150',
+            'highlight' => 'required|max: 150',
+            'link' => 'max:150',
+            'description' => 'required|max: 4000',
+            'company' => 'max:150',
+        ]);
+
+        $project = Project::find($id);
+
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('img/project/thumbnail/' . $filename);
+            Image::make($image)->resize(400, 300)->save($location);
+            $project->thumbnail = $filename;
+        }
+
+        $project->name = $request->name;
+        $project->order = $request->order;
+        $project->highlight = $request->highlight;
+        $project->link = $request->link;
+        $project->description = $request->description;
+        $project->company = $request->company;
+
+        $project->save();
+
+        // ProjectImage::where('project_id', $id)->delete();
+
+        if ($request->hasFile('images')) {
+            foreach($request->images as $key => $item) {
+                $project_image = new ProjectImage();
+                $image = $item;
+                $filename = $key . time() . '.' . $image->getClientOriginalExtension();
+                $location = public_path('img/project/images/' . $filename);
+                Image::make($image)->resize(600, 370)->save($location);
+                $project_image->project_id = $project->id;
+                $project_image->image = $filename;
+                $project_image->order = $key + 1;
+                $project_image->save();
+            }
+        }
+
+        Session::flash('success', "Project has been updated.");
+
+        return redirect()->route('projects.edit', $id);
     }
 
     /**
@@ -137,4 +174,9 @@ class ProjectController extends Controller
     {
         //
     }
+
+    public function deleteImage(Request $request, $id) {
+
+    }
+
 }

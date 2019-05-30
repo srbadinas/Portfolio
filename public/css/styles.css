@@ -7,12 +7,20 @@ body {
     height: 100%;
 }
 
+a {
+    cursor: pointer;
+}
+
 textarea {
     resize: vertical;
 }
 
 dt, dd {
     margin-bottom: 5px;
+}
+
+.carousel-item {
+    transition: transform .5s ease, opacity .5s ease-out
 }
 
 .messages-modal {
@@ -89,7 +97,7 @@ main {
     height: 84px;
     background-color: #00bcd4;
     color: #fff;
-    padding: 3px 20px;
+    padding: 0px 20px;
     margin-bottom: 40px;
     font-family: "Roboto", sans-serif;
     font-weight: 200;
@@ -98,12 +106,13 @@ main {
 .page-title .title {
     float: left;
     width: 80%;
+    margin: 17px 0px 11px 0px;
 }
 
 .page-title .manage-button {
     float: left;
     width: 20%;
-    padding: 23px 0px;
+    padding: 22px 0px;
 }
 
 .page-content {
@@ -347,11 +356,12 @@ main {
 
 .project-card {
     float: left;
-    width: 330px;
+    width: 315px;
     height: 230px;
     box-sizing: border-box;
-    margin: 3px;
+    margin: 10px;
     position: relative;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
 }
 
 .project-card>.project-img {
@@ -379,7 +389,7 @@ main {
 }
 
 .project-card>.project-title>.highlight {
-    font-size: 14pt;
+    font-size: 12pt;
     font-weight: bold;
 }
 
@@ -410,11 +420,12 @@ main {
     height: 370px;
 }
 
-.project-carousel .carousel-inner .item img {
-    height: 370px !important;
+.project-carousel .carousel-inner .carousel-item img {
+    width: 100%;
+    height: 370px;
 }
 
-.project-carousel .carousel-control {
+.project-carousel .carousel-control-prev, .project-carousel .carousel-control-next {
     height: 50px;
     width: unset !important;
     padding: 10px 25px;
@@ -422,17 +433,8 @@ main {
     top: unset !important;
     bottom: 1px !important;
 }
-.project-carousel .carousel-control .glyphicon-chevron-left {
-    margin-left: -15px;
-}
 
-.project-carousel .carousel-control .glyphicon-chevron-right {
-    margin-right: -15px;
-}
 
-.project-carousel .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right {
-    font-size: 20px;
-}
 
 .project-modal>.modal-dialog>.modal-content>.modal-body>.project-title {
     font-size: 22pt;
@@ -460,13 +462,18 @@ main {
     margin-top: 10px;
 }
 
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
 /* User Page */
 
 .user-page {
-    margin-top: 50px;
-    margin-bottom: 50px;
     background: #fff;
     border-radius: 5px;
+    padding: 10px 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .user-page .header>h3 {
@@ -477,7 +484,65 @@ main {
 
 .pagination-wrapper {
     text-align: center;
-} 
+}
+
+
+
+.content-image-container {
+    width: 150px;
+    height: 100px;
+    float: left;
+    margin-right: 10px; 
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+
+.content-image-container>img{
+    width: 100%;
+    height: 100%;
+    float: left;
+    transition: .5s all;
+}
+
+.remove-image-button {
+    position: absolute;
+    right: 3%;
+    opacity: 0;
+}
+
+.remove-image-button>img {
+    width: 13px;
+    height: auto;
+}
+
+.content-image-container:hover>img {
+    opacity: .3;
+}
+
+.content-image-container:hover>.remove-image-button {
+    opacity: 1;
+}
+
+.upload-image-button {
+    float: left;
+    width: 150px;
+    height: 100px;
+    margin-right: 10px;
+    margin-bottom: 15px;
+}
+
+.upload-image-button>button{
+    width: 100%;
+    height: 100%;
+}
+
+.upload-image-button>button>i{
+    font-size: 70px;
+}
 
 
 @media (min-width: 1058px) {
@@ -487,6 +552,17 @@ main {
 
     .home-page {
         width: 80%;
+    }
+}
+
+@media (max-width: 991px) {
+    .table-responsive {
+        overflow-x: unset;
+    }
+
+    .user-page {
+        margin-left: 20px;
+        margin-right: 20px;
     }
 }
 
@@ -518,4 +594,33 @@ main {
         font-size: 28px !important;
         width: 60% !important;
     }
+}
+
+@media (max-width: 405px) {
+    .project-card {
+        width: 95%;
+        height: auto
+    }
+
+    .project-card .project-title .title {
+        font-size: 16px;
+    }
+
+    .project-card .project-title .highlight {
+        font-size: 13px;
+    }
+
+    .project-card:hover .button {
+        opacity: 1;
+        bottom: 10%;
+    }
+
+    /* .project-carousel {
+        height: 250px;
+    }
+
+    .project-carousel .carousel-inner .carousel-item img {
+        width: 100%;
+        height: 250px;
+    } */
 }

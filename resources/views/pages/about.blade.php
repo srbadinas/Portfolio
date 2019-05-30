@@ -6,11 +6,11 @@
     <div class="page-wrapper">
         <div class="page-title">
             <div class="title">
-                <h1>ABOUT</h1>
+                <h1>About</h1>
             </div>
             @if (Auth::user())
                 <div class="manage-button">
-                    <button class="btn btn-default pull-right"><i class="glyphicon glyphicon-cog"></i></button>
+                    <button class="btn btn-outline-light float-right"><i class="fa fa-cog"></i></button>
                 </div>
             @endif
         </div>

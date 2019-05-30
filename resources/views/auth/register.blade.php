@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="register-page col-md-12">
-    <div class="col-md-4 col-md-offset-4 register">
+    <div class="col-md-4 offset-md-4 register">
         <div class="col-md-12 header">
             <h3>Register</h3>
         </div>

@@ -5,7 +5,14 @@
 @section('content')
 <div class="page-wrapper">
     <div class="page-title">
-        <h1>Experience</h1>
+        <div class="title">
+            <h1>Experience</h1>
+        </div>
+        @if (Auth::user())
+            <div class="manage-button">
+                    <button class="btn btn-outline-light float-right"><i class="fa fa-cog"></i></button>
+            </div>
+        @endif
     </div>
     <div class="page-content">
         <div class="container">

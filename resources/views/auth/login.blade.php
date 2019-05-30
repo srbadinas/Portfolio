@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="login-page col-md-12">
-    <div class="col-md-4 col-md-offset-4 login">
+    <div class="col-md-4 offset-md-4 login">
         <div class="col-md-12 header">
             <h3>Login</h3>
         </div>
@@ -15,7 +15,9 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <div class="input-group">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-user"></i></div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-user"></i></div>
+                            </div>
                             {{ Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Enter Username', 'required' => '']) }}
                         </div>
                     </div>
@@ -23,7 +25,9 @@
                 <div class="form-group">
                     <div class="col-md-12">
                         <div class="input-group">
-                            <div class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></div>
+                            <div class="input-group-prepend">
+                                <div class="input-group-text"><i class="fa fa-lock"></i></div>
+                            </div>
                             {{ Form::password('password', ['class' => 'form-control', 'placeholder' => 'Enter Password', 'required' => '']) }}
                         </div>
                     </div>

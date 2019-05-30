@@ -1,6 +1,6 @@
 @extends('user')
 
-@section('title', "Projects")
+@section('title', "Create Project")
 
 
 @section('content')
@@ -13,8 +13,8 @@
             {{ Form::open(['route' => 'projects.store', 'method' => 'post', 'class' => 'form-horizontal', 'files' => true]) }}
             <div class="form-group">
                 <div class="col-md-8">
-                        {{ Form::label('name', 'Project Name:') }}
-                        {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter Project Name']) }}
+                    {{ Form::label('name', 'Project Name:') }}
+                    {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter Project Name']) }}
                 </div>
             </div>
             <div class="form-group">
@@ -29,12 +29,12 @@
                     {{ Form::text('link', null, ['class' => 'form-control', 'placeholder' => 'Enter Link']) }}
                 </div>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="col-md-8">
                     {{ Form::label('thumbnail', 'Thumbnail:') }}
                     {{ Form::file('thumbnail') }}
                 </div>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <div class="col-md-12">
                     {{ Form::label('description', 'Description:') }}
@@ -47,12 +47,12 @@
                     {{ Form::text('company', null, ['class' => 'form-control', 'placeholder' => 'Enter Company']) }}
                 </div>
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <div class="col-md-8">
                     {{ Form::label('images', 'Images:') }}
                     {{ Form::file('images[]', ['multiple' => true]) }}
                 </div>
-            </div>
+            </div> --}}
             <div class="form-group">
                 <div class="col-md-12">
                     <button type="button" class="btn btn-default" onclick="location.href='{{ route('projects.index') }}'">Back to List</button>
