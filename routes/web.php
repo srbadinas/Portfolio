@@ -29,7 +29,7 @@ Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLogin
 Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
- Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
+// Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
 // Route::post('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
 
 
