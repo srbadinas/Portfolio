@@ -5,7 +5,7 @@
     </head>
     <body style="background: url('{{ asset("img/wallpaper.jpg") }}') no-repeat">
         <main>
-            <div class="col-md-10 col-md-offset-1 user-page">
+            <div class="col-md-10 offset-md-1 user-page">
                 <div class="col-md-12 header">
                     <h3>@yield('title')</h3>
                     @include('partials._messages')
