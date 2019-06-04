@@ -18,26 +18,28 @@ class ViewWebsite
     public function handle($request, Closure $next)
     {
         $view = new Viewer();
-        // $view->ip_address = trim(shell_exec("dig +short myip.opendns.com @resolver1.opendns.com"));
-        
-        $ipaddress = '';
-        if (isset($_SERVER['HTTP_CLIENT_IP']))
-            $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        else if(isset($_SERVER['HTTP_X_FORWARDED']))
-            $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-        else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-            $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-        else if(isset($_SERVER['HTTP_FORWARDED']))
-            $ipaddress = $_SERVER['HTTP_FORWARDED'];
-        else if(isset($_SERVER['REMOTE_ADDR']))
-            $ipaddress = $_SERVER['REMOTE_ADDR'];
-        else
-            $ipaddress = 'UNKNOWN'; 
 
-        $view->ip_address = $ipaddress;
-
+        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
+            $view->ip_address = $_SERVER['HTTP_CLIENT_IP'];
+        }
+        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $view->ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+        else if(isset($_SERVER['HTTP_X_FORWARDED'])) {
+            $view->ip_address = $_SERVER['HTTP_X_FORWARDED'];
+        }
+        else if(isset($_SERVER['HTTP_FORWARDED_FOR'])) {
+            $view->ip_address = $_SERVER['HTTP_FORWARDED_FOR'];
+        }
+        else if(isset($_SERVER['HTTP_FORWARDED'])) {
+            $view->ip_address = $_SERVER['HTTP_FORWARDED'];
+        }
+        else if(isset($_SERVER['REMOTE_ADDR'])) {
+            $view->ip_address = $_SERVER['REMOTE_ADDR'];
+        }
+        else {
+            $view->ip_address = 'UNKNOWN'; 
+        }
 
         $view->viewed_at = date('Y-m-d H:i:s');
         $view->save();
