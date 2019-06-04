@@ -41,9 +41,10 @@ class ViewWebsite
             $view->ip_address = 'UNKNOWN'; 
         }
 
+        $arr_ip = geoip()->getLocation($view->ip_address);
+        $view->location = $arr_ip->city . ", " . $arr_ip->country;
         $view->viewed_at = date('Y-m-d H:i:s');
         $view->save();
-
 
         return $next($request);
     }

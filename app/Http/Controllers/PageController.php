@@ -32,6 +32,7 @@ class PageController extends Controller
 
     public function getAbout() 
     {
+        
         return view('pages.about', ['user_data' => $this->user_data]);
     }
 

@@ -626,12 +626,11 @@ main {
         bottom: 10%;
     }
 
-    /* .project-carousel {
+    .project-carousel {
         height: 250px;
     }
 
     .project-carousel .carousel-inner .carousel-item img {
-        width: 100%;
         height: 250px;
-    } */
+    }
 }
