@@ -13,12 +13,12 @@ class CreateSkillsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('skills', function (Blueprint $table) {
-        //     $table->increments('id');
-        //     $table->string('name', 50);
-        //     $table->integer('skill_type_id')->unsigned();
-        //     $table->timestamps();
-        // });
+        Schema::create('skills', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name', 50);
+            $table->integer('skill_type_id')->unsigned();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateSkillsTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('skills');
+        Schema::dropIfExists('skills');
     }
 }

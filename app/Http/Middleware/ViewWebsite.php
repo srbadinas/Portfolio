@@ -17,9 +17,10 @@ class ViewWebsite
      */
     public function handle($request, Closure $next)
     {
-        $view = new Viewer();
+        $viewer_ip = file_get_contents('https://api.ipify.org');
 
-        $view->ip_address = trim(shell_exec("dig +short myip.opendns.com @resolver1.opendns.com"));
+        // $view->ip_address = trim(shell_exec("dig +short myip.opendns.com @resolver1.opendns.com"));
+        $view->ip_address = file_get_contents('https://api.ipify.org');
         $view->viewed_at = date('Y-m-d H:i:s');
         $view->save();
 
