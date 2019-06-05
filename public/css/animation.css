@@ -4,11 +4,25 @@
     animation-duration: 2s;
     animation-fill-mode: both;
     position: absolute;
-    float: left;
     left: 20%;
     width: 100%;
 }
 
+.text-fade-in {
+    opacity: 0;
+    animation-name: FadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    width: 100%;
+}
+
+.animation-delay-1 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2 {
+    animation-delay: 2s;
+}
 
 @keyframes rightFadeIn {
     0% {
@@ -19,5 +33,15 @@
     100% {
         opacity: 1;
         left: 0%;
+    }
+}
+
+@keyframes FadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
     }
 }

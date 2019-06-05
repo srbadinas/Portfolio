@@ -155,6 +155,7 @@ main {
 .about .intro {
     float: left;
     width: 100%;
+    position: relative;
 }
 
 .about .intro .content {
