@@ -22,6 +22,8 @@
 
 {{ Html::style('css/animation.css') }}
 
+{{ Html::style('css/breakpoints.css') }}
+
 @yield('styles')
 
 <style>
