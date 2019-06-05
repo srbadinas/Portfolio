@@ -11,17 +11,19 @@
 |
 */
 
-Route::get('/', 'PageController@index')->name('home');
+Route::group(['middleware' => 'viewed'], function() {
+    Route::get('/', 'PageController@index')->name('home');
 
-Route::get('/about', 'PageController@getAbout')->name('about');
+    Route::get('/about', 'PageController@getAbout')->name('about');
 
-Route::get('/skills', 'PageController@getSkills')->name('skills');
+    Route::get('/skills', 'PageController@getSkills')->name('skills');
 
-Route::get('/experiences', 'PageController@getExperiences')->name('experience');
+    Route::get('/experiences', 'PageController@getExperiences')->name('experience');
 
-Route::get('/education', 'PageController@getEducation')->name('education');
+    Route::get('/education', 'PageController@getEducation')->name('education');
 
-Route::get('/projects', 'PageController@getProjects')->name('project');
+    Route::get('/projects', 'PageController@getProjects')->name('project');
+});
 
 //Auth::routes();
 
@@ -29,8 +31,8 @@ Route::get('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLogin
 Route::post('/login', ['as' => 'login', 'uses' => 'Auth\LoginController@login']);
 Route::get('/logout', ['as' => 'logout', 'uses' => 'Auth\LoginController@logout']);
 
-// Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
-// Route::post('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
+ Route::get('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@ShowRegistrationForm']);
+ Route::post('/register', ['as' => 'register', 'uses' => 'Auth\RegisterController@register']);
 
 
 Route::group(['middleware' => 'auth'], function () {
