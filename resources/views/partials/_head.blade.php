@@ -20,6 +20,8 @@
 
 {{ Html::style('css/textcolor.css') }}
 
+{{ Html::style('css/animation.css') }}
+
 @yield('styles')
 
 <style>

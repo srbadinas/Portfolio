@@ -1,0 +1,23 @@
+.text-right-fade-in {
+    opacity: 0;
+    animation-name: rightFadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: both;
+    position: absolute;
+    float: left;
+    left: 20%;
+    width: 100%;
+}
+
+
+@keyframes rightFadeIn {
+    0% {
+        opacity: 0;
+        left: 20%;
+    }
+
+    100% {
+        opacity: 1;
+        left: 0%;
+    }
+}

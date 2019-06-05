@@ -14,7 +14,7 @@
                 </div>
             @endif
         </div>
-        <div class="page-content">
+        <div class="page-content text-reveal-animation">
             <div class="about">
                 <div class="intro">
                     <div class="content">

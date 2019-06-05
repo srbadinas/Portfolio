@@ -20,29 +20,7 @@ class ViewWebsite
     public function handle($request, Closure $next)
     {
         $view = new Viewer();
-
-        if (isset($_SERVER['HTTP_CLIENT_IP'])) {
-            $view->ip_address = $_SERVER['HTTP_CLIENT_IP'];
-        }
-        else if(isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $view->ip_address = $_SERVER['HTTP_X_FORWARDED_FOR'];
-        }
-        else if(isset($_SERVER['HTTP_X_FORWARDED'])) {
-            $view->ip_address = $_SERVER['HTTP_X_FORWARDED'];
-        }
-        else if(isset($_SERVER['HTTP_FORWARDED_FOR'])) {
-            $view->ip_address = $_SERVER['HTTP_FORWARDED_FOR'];
-        }
-        else if(isset($_SERVER['HTTP_FORWARDED'])) {
-            $view->ip_address = $_SERVER['HTTP_FORWARDED'];
-        }
-        else if(isset($_SERVER['REMOTE_ADDR'])) {
-            $view->ip_address = $_SERVER['REMOTE_ADDR'];
-        }
-        else {
-            $view->ip_address = 'UNKNOWN'; 
-        }
-
+        $view->ip_address = getIPAddress();
         $check_viewer = Viewer::where('ip_address', $view->ip_address)->orderByDesc('id')->first();
         
         if ($check_viewer) {

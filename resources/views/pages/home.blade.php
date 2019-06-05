@@ -4,6 +4,10 @@
 
 @section('content')
     <div class="home-page">
-        {!! $intro !!}
+        <div class="intro">
+            <div class="text-right-fade-in">
+                {!! $intro !!}
+            </div>
+        </div>
     </div>
 @endsection
