@@ -20,7 +20,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('order', 'ASC')->paginate(15);
-        return view('projects.index', ['projects' => $projects]);
+        return view('admin.projects.index', ['projects' => $projects, 'viewers' => $this->getViewers()]);
     }
 
     /**
@@ -30,7 +30,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create');
+        return view('admin.projects.create', ['viewers' => $this->getViewers()]);
     }
 
     /**
@@ -47,6 +47,7 @@ class ProjectController extends Controller
             'link' => 'max:150',
             'description' => 'required|max: 4000',
             'company' => 'max:150',
+            'thumbnail' => 'required|max: 100|mimes: jpg, jpeg, png|dimensions: min_width=400, min_height=300',
         ]);
 
         $project = new Project();
@@ -71,23 +72,23 @@ class ProjectController extends Controller
         $project->save();
 
 
-        if ($request->hasFile('images')) {
-            foreach($request->images as $key => $item) {
-                $project_image = new ProjectImage();
-                $image = $item;
-                $filename = time() . '.' . $image->getClientOriginalExtension();
-                $location = public_path('img/project/images/' . $filename);
-                Image::make($image)->resize(800, 370)->save($location);
-                $project_image->project_id = $project->id;
-                $project_image->image_url = $filename;
-                $project_image->order = $key + 1;
-                $project_image->save();
-            }
-        }
+        // if ($request->hasFile('images')) {
+        //     foreach($request->images as $key => $item) {
+        //         $project_image = new ProjectImage();
+        //         $image = $item;
+        //         $filename = time() . '.' . $image->getClientOriginalExtension();
+        //         $location = public_path('img/project/images/' . $filename);
+        //         Image::make($image)->resize(800, 370)->save($location);
+        //         $project_image->project_id = $project->id;
+        //         $project_image->image_url = $filename;
+        //         $project_image->order = $key + 1;
+        //         $project_image->save();
+        //     }
+        // }
 
         Session::flash('success', "Project has been created.");
 
-        return route('projects.index');
+        return redirect()->route('projects.edit', $project->id);
     }
 
     /**
@@ -99,7 +100,7 @@ class ProjectController extends Controller
     public function edit($id)
     {
         $project = Project::find($id);
-        return view('projects.edit', ['project' => $project]);
+        return view('admin.projects.edit', ['project' => $project, 'viewers' => $this->getViewers()]);
     }
 
     /**
@@ -117,17 +118,18 @@ class ProjectController extends Controller
             'link' => 'max:150',
             'description' => 'required|max: 4000',
             'company' => 'max:150',
+            'thumbnail' => 'max: 100|mimes: jpg, jpeg, png|dimensions: min_width=400, min_height=300',
         ]);
 
         $project = Project::find($id);
 
-        // if ($request->hasFile('thumbnail')) {
-        //     $image = $request->file('thumbnail');
-        //     $filename = time() . '.' . $image->getClientOriginalExtension();
-        //     $location = public_path('img/project/thumbnail/' . $filename);
-        //     Image::make($image)->resize(400, 300)->save($location);
-        //     $project->thumbnail = $filename;
-        // }
+        if ($request->hasFile('thumbnail')) {
+            $image = $request->file('thumbnail');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('img/project/thumbnail/' . $filename);
+            Image::make($image)->resize(400, 300)->save($location);
+            $project->thumbnail = $filename;
+        }
 
         $project->name = $request->name;
         $project->order = $request->order;
@@ -170,8 +172,32 @@ class ProjectController extends Controller
         //
     }
 
-    public function deleteImage(Request $request, $id) {
+    public function viewImages($id) {
+        $project = Project::find($id);
+        return view('admin.projects.images', ['project' => $project, 'viewers' => $this->getViewers()]);
+    }
 
+    public function storeImage(Request $request, $id) {
+        $this->validate($request, [
+            'image' => 'required|max: 100|mimes: jpg, jpeg, png',
+        ]);
+
+        if ($request->hasFile('image')) {
+            $project_image = new ProjectImage();
+            $image = $request->image;
+            $key = ProjectImage::where('project_id', $id)->orderByDesc('order')->first();
+
+            $filename = $key->order + 1 . time() . '.' . $image->getClientOriginalExtension();
+            $location = public_path('img/project/images/' . $filename);
+            Image::make($image)->resize(800, 370)->save($location);
+            $project_image->project_id = $id;
+            $project_image->image = $filename;
+            $project_image->order = $key->order + 1;
+            $project_image->save();
+        }
+
+        Session::flash('success', "Image has been uploaded.");
+        return redirect()->route('projects.images', $id);
     }
 
 }

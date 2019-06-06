@@ -16,6 +16,11 @@
 
 {{ Html::style('css/styles.css') }}
 
+@if (Auth::user())
+    {{ Html::style('css/admin.css') }}
+@endif
+
+
 {{ Html::style('css/nav.css') }}
 
 {{ Html::style('css/textcolor.css') }}
@@ -32,24 +37,6 @@
         float: right;
         background: url('{{ asset("img/bg.png") }}') repeat;
         min-height: 100vh;
-    }
-
-    @media (min-width: 300px) and (max-width: 1057px) {
-        .page-wrapper {
-            width: 92%;
-        }
-    }
-
-    @media (min-width: 1058px) {
-        .page-wrapper {
-            width: 80%;
-        }
-    }
-
-    @media (max-width: 700px) {
-        .page-wrapper {
-            width: 100%;
-        }
     }
 
 </style>

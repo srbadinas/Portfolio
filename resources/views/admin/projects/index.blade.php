@@ -1,11 +1,11 @@
-@extends('user')
+@extends('admin')
 
 @section('title', "Projects")
 
-
 @section('content')
     <div class="col-md-12 margin-bottom-10">
-        <button type="button" class="btn btn-success btn-sm" onclick="location.href='{{ route('projects.create') }}'"><i class="glyphicon glyphicon-plus"></i> Add Project</button>
+        <button type="button" class="btn btn-outline-success btn-sm" onclick="location.href='{{ route('projects.create') }}'"><i class="fa fa-plus"></i> Add Project</button>
+        <button type="button" class="btn btn-outline-warning btn-sm"><i class="fa fa-pencil-alt"></i></button>
     </div>
     <div class="col-md-12">
         <div class="table-responsive">
@@ -30,9 +30,8 @@
                             <td>{{ $item->updated_at }}</td>
                             <td>
                                 <button type="button" class="btn btn-warning btn-sm" onclick="location.href='{{ route('projects.edit', $item->id) }}'"><i class="fa fa-edit"></i></button>
+                                <button type="button" class="btn btn-info btn-sm" onclick="location.href='{{ route('projects.images', $item->id) }}'"><i class="fa fa-images"></i></button>
                                 <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                {{-- <a href="{{ route('projects.edit', $item->id) }}">Edit</a> |  --}}
-                                {{-- <a href="#">Delete</a>  --}}
                             </td>
                         </tr>
                     @endforeach

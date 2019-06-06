@@ -10,7 +10,7 @@
             </div>
             @if (Auth::user())
                 <div class="manage-button">
-                    <button class="btn btn-outline-light float-right"><i class="fa fa-cog"></i></button>
+                    <button class="btn btn-outline-light float-right" onclick="location.href='{{ route('skills.index') }}'"><i class="fa fa-cog"></i></button>
                 </div>
             @endif
         </div>

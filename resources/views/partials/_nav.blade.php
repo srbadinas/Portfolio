@@ -53,53 +53,6 @@
     </ul>
 </nav>
 
-<nav class="navigation-medium">
-  <ul>
-      <li class="logo" onclick="location.href='{{ route('home') }}'">
-        @if ($user_data)
-          <img src="{{ asset('img/user/' . $user_data->picture_url) }}" />
-        @else
-          <img src="{{ asset('img/default-user-image.png') }}" />
-        @endif
-      </li>
-      <li class="menu">
-        <a href="{{ route('about') }}">
-          <i class="fas fa-user teal-text"></i>
-        </a>
-      </li>
-      <li class="menu">
-          <a href="{{ route('project') }}">
-            <i class="fas fa-project-diagram red-text"></i>
-          </a>
-        </li>
-      <li class="menu">
-        <a href="{{ route('skills') }}">
-          <i class="fas fa-chart-bar purple-text"></i>
-        </a>
-      </li>
-      <li class="menu">
-        <a href="{{ route('experience') }}">
-          <i class="fas fa-chart-line cyan-text"></i>
-        </a>
-      </li>
-      <li class="menu">
-        <a href="{{ route('education') }}">
-          <i class="fas fa-graduation-cap orange-text"></i>
-        </a>
-      </li>
-      {{-- <li class="menu">
-        <a href="#">
-          <i class="fas fa-envelope brown-text"></i>
-        </a>
-      </li>
-      <li class="menu">
-        <a href="#">
-          <i class="fas fa-file-alt gray-text"></i>
-        </a>
-      </li> --}}
-  </ul>
-</nav>
-
 <nav class="navigation-small-trigger">
   <div class="header">
     <div class="toggle-button">

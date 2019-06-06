@@ -6,6 +6,16 @@
     .home-page {
         width: 80%;
     }
+
+    .page-wrapper {
+        width: 80%;
+    }
+}
+
+@media (max-width: 1057px) {
+    .page-wrapper {
+        width: 100%;
+    }
 }
 
 @media (max-width: 767px) {
@@ -17,7 +27,7 @@
 
 @media (min-width: 701px) and (max-width: 1057px) {
     .dashboard {
-        width: 92%;
+        width: 100%;
     }
     
     .home-page .intro {
@@ -25,7 +35,7 @@
     }
 
     .home-page {
-        width: 92%;
+        width: 100%;
     }
     
 }
